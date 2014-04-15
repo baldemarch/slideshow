@@ -1,0 +1,112 @@
+<!-- 
+SIMPLE SLIDE
+Author: Baldemar Roldan
+email: hola@baldemar.mx
+web: http://baldemar.mx
+ -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Slideshow</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <style rel="text/css">
+    body {
+        /*background: #007654;*/
+    }
+    .container {
+        background: #A2332A;
+        margin: 10px auto;
+        height: 250px;
+        overflow: hidden;
+        position: relative;
+        text-align: center;
+        width: 400px;
+    }
+    .wrapper {
+        background: rgba(123, 176, 98, 0.5);
+        height: 75%;
+        position: relative;
+        transition: all .3s ease;
+        width: 1600px;
+        -moz-transition: all .3s ease;
+        -webkit-transition: all .3s ease;
+    }
+    .slide {
+        color: #FFF;
+        float: left;
+        font-family:'Arial', sans-serif;
+        font-size: 30pt;
+        height: 100%;
+        line-height: 190px;
+        width: 400px;
+    }
+    .slide:nth-of-type(1) {
+        background: crimson;
+    }
+    .slide:nth-of-type(2) {
+        background: lightgreen;
+    }
+    .slide:nth-of-type(3) {
+        background: coral;
+    }
+    button {
+        background: -webkit-linear-gradient(#FFF 0%, #CFCFCF 100%);
+        background: -moz-linear-gradient(#FFF 0%, #CFCFCF 100%);
+        border: 0;
+        border-radius: 3pt;
+        color: #666;
+        display: inline-block;
+        font-size: 16pt;
+        height: 40px;
+        margin: 10px;
+        outline: none;
+        text-shadow: 0 1px 0 #FFF;
+        vertical-align: top;
+        width: 60px;
+    }
+    button:first-of-type {
+        margin-right: 50%;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="slide">SLIDE 1</div>
+            <div class="slide">SLIDE 2</div>
+            <div class="slide">SLIDE 3</div>
+            <div class="slide">SLIDE 4</div>
+        </div>
+        <button onclick="goRight();">
+            <</button>
+                <button onclick="goLeft();">></button>
+    </div>
+    <script type="text/javascript">
+    function goLeft() {
+        var slideNumber = $('.slide').length - 1;
+        var _slideW = $('.slide').width();
+        var _totalW = parseInt((_slideW * slideNumber));
+
+        var _marginL = parseInt($('.wrapper').css('margin-left'));
+
+        if (_totalW !== Math.abs(_marginL)) {
+            $('.wrapper').css('margin-left', _marginL - _slideW + 'px');
+        }
+    };
+
+    function goRight() {
+        var _slideW = $('.slide').width();
+        var _marginL = parseInt($('.wrapper').css('margin-left'));
+
+        if (_marginL != 0) {
+            $('.wrapper').css('margin-left', _marginL + _slideW + 'px');
+        }
+    };
+    </script>
+</body>
+
+</html>
