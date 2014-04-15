@@ -1,6 +1,6 @@
 *** READ FIRST ***
 
-This little script is for public as and it's provided as is.
+This little script is for public use.
 
 I don't give you any warranty that it will work always and on every browser nor device.
 
